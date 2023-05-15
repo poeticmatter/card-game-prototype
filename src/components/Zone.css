@@ -10,13 +10,21 @@
 
 .hand-zone {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   gap: 10px; /* Adjust the gap between cards as needed */
+  min-height: 200px; /* Set a minimum height for the drop zone */
+  border: 2px dashed #ccc; /* Add a dashed border for the drop zone */
+}
+
+.zones-row {
+  width: 80%;
+  /* Add any additional styles you want */
+  margin-bottom: 40px; /* Add margin below the zones row */
 }
 
 .zone {
-  height: 260px; /* Set the desired height */
+  height: 240px; /* Set the desired height */
   /* Additional styles for the zone container */
 }
 
@@ -29,6 +37,7 @@
 .deck-discard-zone {
   display: flex;
   justify-content: center;
+  margin-bottom: 20px; /* Add margin below the deck-discard-zone */
 }
 
 .empty-padding {
@@ -40,4 +49,16 @@
 }
 .button-container {
   margin-top: 5px;
+}
+.single-card-zone {
+  width: 180px;
+  height: 100%; /* Set the height to 100% */
+  border: 2px dashed #ccc;
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+}
+
+.card-list {
+  height: 100%;
 }

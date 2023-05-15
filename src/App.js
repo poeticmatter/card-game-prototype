@@ -95,7 +95,7 @@ const App = () => {
       <div className="zones">
         <DndProvider backend={HTML5Backend}>
           <div className="zones-row">
-            <div className="hand-zone">
+            <div>
               <HandZone
                 zoneName="Hand"
                 cards={cards.Hand}
