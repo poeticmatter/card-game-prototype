@@ -24,7 +24,8 @@ const App = () => {
   });
 
   useEffect(() => {
-    loadCardData("/data/cards.csv");
+    const csvPath = process.env.PUBLIC_URL + "/data/cards.csv";
+    loadCardData(csvPath);
   }, []);
 
   const loadCardData = async (csvFilePath) => {
@@ -98,7 +99,7 @@ const App = () => {
 
   const downloadTemplate = () => {
     const element = document.createElement("a");
-    const templateURL = "/data/cards.csv";
+    const templateURL = process.env.PUBLIC_URL + "/data/cards.csv";
     element.setAttribute("href", templateURL);
     element.setAttribute("download", "cards.csv");
     element.style.display = "none";
