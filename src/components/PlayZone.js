@@ -5,27 +5,15 @@ import Zone from "./Zone";
 import "./Zone.css"; // Import the Zone CSS file
 
 const PlayZone = ({ zoneName, cards, onCardMove }) => {
-  const [cardPositions, setCardPositions] = useState(new Map());
-
-  useEffect(() => {}, [cardPositions]);
+  const [cardPositions, setCardPositions] = useState([]);
 
   const handleCardMove = (cardId, newZone) => {
     onCardMove(cardId, newZone);
   };
 
-  const handleDrag = (cardId) => {
-    const updatedCardPositions = new Map(cardPositions);
-    updatedCardPositions.delete(cardId);
-    setCardPositions(updatedCardPositions);
-  };
-
   const handleDrop = (cardId, x, y) => {
-    const updatedCardPositions = {
-      ...cardPositions,
-      [cardId]: { x, y },
-    };
-
-    setCardPositions(updatedCardPositions);
+    cardPositions[cardId] = { x, y };
+    setCardPositions(cardPositions);
   };
 
   const [{ isDragging }, drag] = useDrag(() => ({
@@ -74,7 +62,6 @@ const PlayZone = ({ zoneName, cards, onCardMove }) => {
                 card={card}
                 isDeckZone={false}
                 onCardMove={handleCardMove}
-                onDrag={handleDrag}
                 onDrop={handleDrop}
                 zoneName={zoneName}
                 cardDisplayType="faceUp"
