@@ -77,25 +77,32 @@ const App = () => {
       <h1>Card Game Prototype</h1>
       <div className="zones">
         <DndProvider backend={HTML5Backend}>
-          <DeckZone
-            zoneName="Deck"
-            cards={cards.Deck}
-            onCardMove={handleCardMove}
-            cardDisplayType="faceDown"
-          />
-          <button onClick={() => handleShuffle("Deck")}>Shuffle Deck</button>
-
-          <DiscardZone
-            zoneName="Discard"
-            cards={cards.Discard}
-            onCardMove={handleCardMove}
-            cardDisplayType="faceUp"
-          />
-          <HandZone
-            zoneName="Hand"
-            cards={cards.Hand}
-            onCardMove={handleCardMove}
-          />
+          <div className="zones-row">
+            <div className="hand-zone">
+              <HandZone
+                zoneName="Hand"
+                cards={cards.Hand}
+                onCardMove={handleCardMove}
+              />
+            </div>
+            <div className="deck-discard-zone">
+              <DeckZone
+                zoneName="Deck"
+                cards={cards.Deck}
+                onCardMove={handleCardMove}
+                cardDisplayType="faceDown"
+              />
+              <DiscardZone
+                zoneName="Discard"
+                cards={cards.Discard}
+                onCardMove={handleCardMove}
+                cardDisplayType="faceUp"
+              />
+            </div>
+          </div>
+          <div className="shuffle-button-container">
+            <button onClick={() => handleShuffle("Deck")}>Shuffle Deck</button>
+          </div>
         </DndProvider>
       </div>
     </div>

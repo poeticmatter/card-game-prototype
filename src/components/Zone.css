@@ -14,3 +14,25 @@
   height: 260px; /* Set the desired height */
   /* Additional styles for the zone container */
 }
+
+.zones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.deck-discard-zone {
+  display: flex;
+  justify-content: center;
+}
+
+.deck-zone,
+.discard-zone {
+  width: 50%; /* Adjust the width as needed */
+  margin-right: 10px; /* Add spacing between the zones */
+  margin-left: 10px; /* Add spacing between the zones */
+}
+
+.hand-zone {
+  margin-bottom: 10px; /* Add margin below the hand zone */
+}
