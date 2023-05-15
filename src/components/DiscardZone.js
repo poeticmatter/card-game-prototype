@@ -1,8 +1,15 @@
 import React from 'react';
-import Zone from './Zone';
+import StackZone from './StackZone';
 
-const DiscardZone = ({ cards, onCardMove }) => {
-  return <Zone zoneName="Discard" cards={cards} onCardMove={onCardMove} isFaceUp />;
+const DiscardZone = ({ zoneName, cards, onCardMove }) => {
+  return (
+    <StackZone
+      zoneName={zoneName}
+      cards={cards}
+      onCardMove={onCardMove}
+      cardDisplayType="faceUp"
+    />
+  );
 };
 
 export default DiscardZone;

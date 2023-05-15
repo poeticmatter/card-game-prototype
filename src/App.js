@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Papa from 'papaparse'; // CSV parsing library
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import Zone from './components/Zone';
+import DiscardZone from './components/DiscardZone';
 import DeckZone from './components/DeckZone';
+import HandZone from './components/HandZone';
 
 const App = () => {
   const [cards, setCards] = useState([]); // State to store the loaded cards
@@ -51,19 +52,18 @@ const App = () => {
             zoneName="Deck"
             cards={cards}
             onCardMove={handleCardMove}
-            cardDisplayType="stack"
+            cardDisplayType="faceDown"
           />
-          <Zone
+          <DiscardZone
             zoneName="Discard"
             cards={cards}
             onCardMove={handleCardMove}
             cardDisplayType="faceUp"
           />
-          <Zone
+          <HandZone
             zoneName="Hand"
             cards={cards}
             onCardMove={handleCardMove}
-            cardDisplayType="faceUp"
           />
         </DndProvider>
       </div>
