@@ -88,6 +88,33 @@ const App = () => {
       return updatedCards;
     });
   };
+  const drawCardFromDeck = () => {
+    setCards((prevCards) => {
+      const deckCards = prevCards.Deck;
+
+      if (deckCards.length === 0) {
+        return prevCards; // No cards in the deck
+      }
+
+      const topCard = deckCards[deckCards.length - 1];
+      const updatedDeck = deckCards.slice(0, -1);
+      const updatedHand = [...prevCards.Hand, topCard];
+
+      const updatedCards = {
+        ...prevCards,
+        Deck: updatedDeck,
+        Hand: updatedHand,
+      };
+
+      return updatedCards;
+    });
+  };
+
+  const shuffleAllIntoDeck = () => {
+    moveZoneToDeckAndShuffle("Hand");
+    moveZoneToDeckAndShuffle("Discard");
+    // Add more zones if needed
+  };
 
   return (
     <div className="app">
@@ -119,10 +146,12 @@ const App = () => {
             </div>
           </div>
           <div className="button-container">
+            <button onClick={drawCardFromDeck}>Draw Card</button>
             <button onClick={() => handleShuffle("Deck")}>Shuffle Deck</button>
             <button onClick={() => moveZoneToDeckAndShuffle("Discard")}>
               Discard into Deck
             </button>
+            <button onClick={() => shuffleAllIntoDeck()}>All into Deck</button>
           </div>
         </DndProvider>
       </div>
