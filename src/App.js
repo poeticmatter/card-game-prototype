@@ -24,22 +24,17 @@ const App = () => {
         }));
 
         const updatedCards = {
-          Deck: [],
+          Deck: cardsWithIndex, // Add all cards to the Deck zone
           Discard: [],
           Hand: [],
         };
-
-        cardsWithIndex.forEach((card) => {
-          if (updatedCards.hasOwnProperty(card.zone)) {
-            updatedCards[card.zone].push(card);
-          }
-        });
 
         setCards(updatedCards);
       } catch (error) {
         console.error("Error loading card data:", error);
       }
     };
+
     loadCardData();
   }, []);
 
@@ -55,7 +50,7 @@ const App = () => {
       const updatedCards = removeCard(prevCards, cardId);
 
       // Add the moved card to the new zone at the end
-      const movedCardWithNewZone = { ...movedCard, zone: newZone };
+      const movedCardWithNewZone = { ...movedCard };
       updatedCards[newZone].push(movedCardWithNewZone);
 
       return updatedCards;
@@ -72,6 +67,28 @@ const App = () => {
       return updatedCards;
     });
   };
+
+  const moveZoneToDeckAndShuffle = (zoneName) => {
+    setCards((prevCards) => {
+      const zoneCards = prevCards[zoneName];
+
+      if (zoneCards.length === 0) {
+        return prevCards; // No cards in the specified zone
+      }
+
+      const updatedDeck = [...prevCards.Deck, ...zoneCards];
+      const shuffledDeck = shuffleArray(updatedDeck);
+
+      const updatedCards = {
+        ...prevCards,
+        Deck: shuffledDeck,
+        [zoneName]: [],
+      };
+
+      return updatedCards;
+    });
+  };
+
   return (
     <div className="app">
       <h1>Card Game Prototype</h1>
@@ -103,6 +120,9 @@ const App = () => {
           </div>
           <div className="button-container">
             <button onClick={() => handleShuffle("Deck")}>Shuffle Deck</button>
+            <button onClick={() => moveZoneToDeckAndShuffle("Discard")}>
+              Discard into Deck
+            </button>
           </div>
         </DndProvider>
       </div>
