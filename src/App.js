@@ -13,6 +13,7 @@ import {
   moveZoneToDeckAndShuffle,
   shuffleAllIntoDeck,
 } from "./utils/cardActions";
+import { parse } from "papaparse";
 
 const App = () => {
   const [cards, setCards] = useState({
@@ -23,29 +24,29 @@ const App = () => {
   });
 
   useEffect(() => {
-    const loadCardData = async () => {
-      try {
-        const data = await parseCsv("/data/cards.csv");
-        const cardsWithIndex = data.map((card, index) => ({
-          ...card,
-          id: `card-${index + 1}`,
-        }));
-
-        const updatedCards = {
-          Deck: cardsWithIndex, // Add all cards to the Deck zone
-          Discard: [],
-          Hand: [],
-          Play: [],
-        };
-
-        setCards(updatedCards);
-      } catch (error) {
-        console.error("Error loading card data:", error);
-      }
-    };
-
-    loadCardData();
+    loadCardData("/data/cards.csv");
   }, []);
+
+  const loadCardData = async (csvFilePath) => {
+    try {
+      const data = await parseCsv(csvFilePath);
+      const cardsWithIndex = data.map((card, index) => ({
+        ...card,
+        id: `card-${index + 1}`,
+      }));
+
+      const updatedCards = {
+        Deck: cardsWithIndex, // Add all cards to the Deck zone
+        Discard: [],
+        Hand: [],
+        Play: [],
+      };
+
+      setCards(updatedCards);
+    } catch (error) {
+      console.error("Error loading card data:", error);
+    }
+  };
 
   const handleCardMove = (cardId, newZone) => {
     setCards((prevCards) => {
@@ -64,6 +65,46 @@ const App = () => {
 
       return updatedCards;
     });
+  };
+
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = async (e) => {
+      const csvData = e.target.result;
+      try {
+        const parsedData = parse(csvData, { header: true }).data;
+        console.log("parsedData", parsedData);
+        const updatedCards = {
+          Deck: parsedData, // Replace the Deck zone with the new data
+          Discard: [],
+          Hand: [],
+          Play: [],
+        };
+        console.log("updated cards", updatedCards);
+        setCards(updatedCards);
+      } catch (error) {
+        console.error("Error parsing CSV:", error);
+      }
+    };
+
+    reader.onerror = (e) => {
+      console.error("Error reading file:", e.target.error);
+    };
+
+    reader.readAsText(file);
+  };
+
+  const downloadTemplate = () => {
+    const element = document.createElement("a");
+    const templateURL = "/data/cards.csv";
+    element.setAttribute("href", templateURL);
+    element.setAttribute("download", "cards.csv");
+    element.style.display = "none";
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
   };
 
   return (
@@ -111,6 +152,8 @@ const App = () => {
             <button onClick={() => shuffleAllIntoDeck(setCards)}>
               All into Deck
             </button>
+            <button onClick={downloadTemplate}>Download Template</button>
+            <input type="file" onChange={handleFileUpload} />
           </div>
         </DndProvider>
       </div>
