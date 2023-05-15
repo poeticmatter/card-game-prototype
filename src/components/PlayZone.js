@@ -7,9 +7,7 @@ import "./Zone.css"; // Import the Zone CSS file
 const PlayZone = ({ zoneName, cards, onCardMove }) => {
   const [cardPositions, setCardPositions] = useState(new Map());
 
-  useEffect(() => {
-    console.log("cardPositions:", cardPositions);
-  }, [cardPositions]);
+  useEffect(() => {}, [cardPositions]);
 
   const handleCardMove = (cardId, newZone) => {
     onCardMove(cardId, newZone);
@@ -22,19 +20,12 @@ const PlayZone = ({ zoneName, cards, onCardMove }) => {
   };
 
   const handleDrop = (cardId, x, y) => {
-    console.log("Drop coordinates:", x, y);
-    console.log("cardPositions (before update):", cardPositions);
-
     const updatedCardPositions = {
       ...cardPositions,
       [cardId]: { x, y },
     };
 
-    console.log("updatedCardPositions:", updatedCardPositions);
-
     setCardPositions(updatedCardPositions);
-
-    console.log("cardPositions (after update):", cardPositions);
   };
 
   const [{ isDragging }, drag] = useDrag(() => ({
@@ -67,17 +58,7 @@ const PlayZone = ({ zoneName, cards, onCardMove }) => {
     <Zone zoneName={zoneName} onCardMove={handleCardMove}>
       <div ref={drop} className={`play-zone ${isActive ? "active" : ""}`}>
         {cards.map((card) => {
-          console.log("cardPosition(s) in render:", cardPositions);
-          console.log("card.id in render:", card.id);
           const cardPosition = cardPositions[card.id];
-          console.log("cardPosition in render:", cardPosition);
-
-          if (cardPosition) {
-            console.log("Card coordinates:", cardPosition.x, cardPosition.y);
-          }
-
-          console.log("Card ID:", card.id);
-
           return (
             <div
               key={card.id}
