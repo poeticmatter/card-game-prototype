@@ -23,7 +23,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px; /* Adjust the gap between cards as needed */
-  min-height: 600px; /* Set a minimum height for the drop zone */
+  min-height: 550px; /* Set a minimum height for the drop zone */
   min-width: 1200px; /* Set a minimum height for the drop zone */
   border: 2px dashed #ccc; /* Add a dashed border for the drop zone */
 }
