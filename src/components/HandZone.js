@@ -12,16 +12,18 @@ const HandZone = ({ zoneName, cards, onCardMove }) => {
 
   return (
     <Zone zoneName={zoneName} onCardMove={handleCardMove}>
-      {zoneCards.map((card) => (
-        <Card
-          key={card.id}
-          card={card}
-          isDeckZone={false}
-          onCardMove={handleCardMove}
-          zoneName={zoneName}
-          cardDisplayType="faceUp"
-        />
-      ))}
+      <div className="hand-zone">
+        {zoneCards.map((card) => (
+          <Card
+            key={card.id}
+            card={card}
+            isDeckZone={false}
+            onCardMove={handleCardMove}
+            zoneName={zoneName}
+            cardDisplayType="faceUp"
+          />
+        ))}
+      </div>
     </Zone>
   );
 };

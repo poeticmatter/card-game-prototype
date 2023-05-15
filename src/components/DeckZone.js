@@ -7,7 +7,7 @@ const DeckZone = ({ zoneName, cards, onCardMove }) => {
       zoneName={zoneName}
       cards={cards}
       onCardMove={onCardMove}
-      cardDisplayType="faceUp"
+      cardDisplayType="faceDown"
     />
   );
 };
