@@ -1,9 +1,9 @@
-import React from 'react';
-import { useDrop } from 'react-dnd';
+import React from "react";
+import { useDrop } from "react-dnd";
 
 const Zone = ({ zoneName, onCardMove, children }) => {
   const [{ isOver }, drop] = useDrop(() => ({
-    accept: 'card',
+    accept: "card",
     drop: (item) => onCardMove(item.id, zoneName),
     collect: (monitor) => ({
       isOver: monitor.isOver(),
@@ -12,10 +12,8 @@ const Zone = ({ zoneName, onCardMove, children }) => {
 
   return (
     <div className="zone" ref={drop}>
-      <h2 className="zone-title">{zoneName}</h2>
-      <div className={`card-list ${isOver ? 'highlight' : ''}`}>
-        {children}
-      </div>
+      <h2 className="zone-title center-text">{zoneName}</h2>
+      <div className={`card-list ${isOver ? "highlight" : ""}`}>{children}</div>
     </div>
   );
 };

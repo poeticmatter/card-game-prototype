@@ -1,6 +1,11 @@
 .zone {
   min-height: 176px;
+
   /* Add other styling properties */
+}
+
+.center-text {
+  text-align: center;
 }
 
 .hand-zone {
@@ -26,13 +31,13 @@
   justify-content: center;
 }
 
-.deck-zone,
-.discard-zone {
-  width: 50%; /* Adjust the width as needed */
-  margin-right: 10px; /* Add spacing between the zones */
-  margin-left: 10px; /* Add spacing between the zones */
+.empty-padding {
+  padding: 5px;
 }
 
 .hand-zone {
   margin-bottom: 10px; /* Add margin below the hand zone */
+}
+.button-container {
+  margin-top: 5px;
 }

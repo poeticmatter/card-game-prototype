@@ -92,6 +92,7 @@ const App = () => {
                 onCardMove={handleCardMove}
                 cardDisplayType="faceDown"
               />
+              <div className="empty-padding"></div>
               <DiscardZone
                 zoneName="Discard"
                 cards={cards.Discard}
@@ -100,7 +101,7 @@ const App = () => {
               />
             </div>
           </div>
-          <div className="shuffle-button-container">
+          <div className="button-container">
             <button onClick={() => handleShuffle("Deck")}>Shuffle Deck</button>
           </div>
         </DndProvider>
