@@ -1,0 +1,23 @@
+.card {
+  width: 126px;
+  height: 176px;
+  border-radius: 8px;
+  border: 1px solid #000;
+  padding: 10px;
+  /* Add any other styles specific to the Card component */
+}
+
+.card.dragging {
+  opacity: 0.5;
+  /* Add any additional styles for the dragging state */
+}
+.card.card-back {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 3px,
+    #000 3px,
+    #000 4px
+  );
+  /* Add any other styles for the card back design */
+}
