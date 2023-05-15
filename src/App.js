@@ -61,7 +61,17 @@ const App = () => {
       return updatedCards;
     });
   };
+  const handleShuffle = (zoneName) => {
+    setCards((prevCards) => {
+      const zoneCards = prevCards[zoneName];
+      const shuffledCards = shuffleArray(zoneCards);
 
+      const updatedCards = { ...prevCards };
+      updatedCards[zoneName] = shuffledCards;
+
+      return updatedCards;
+    });
+  };
   return (
     <div className="app">
       <h1>Card Game Prototype</h1>
@@ -73,6 +83,7 @@ const App = () => {
             onCardMove={handleCardMove}
             cardDisplayType="faceDown"
           />
+          <button onClick={() => handleShuffle("Deck")}>Shuffle Deck</button>
 
           <DiscardZone
             zoneName="Discard"
