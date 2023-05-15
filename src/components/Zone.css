@@ -9,3 +9,8 @@
   align-items: center;
   gap: 10px; /* Adjust the gap between cards as needed */
 }
+
+.zone {
+  height: 260px; /* Set the desired height */
+  /* Additional styles for the zone container */
+}
