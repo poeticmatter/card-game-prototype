@@ -1,23 +1,28 @@
-export const drawCardFromDeck = (prevCards, setCards) => {
-  const deckCards = prevCards.Deck;
+import { shuffleArray } from "./cardUtils";
 
-  if (deckCards.length === 0) {
-    return prevCards; // No cards in the deck
-  }
+export const drawCardFromDeck = (setCards) => {
+  setCards((prevCards) => {
+    const deckCards = prevCards.Deck;
 
-  const topCard = deckCards[deckCards.length - 1];
-  const updatedDeck = deckCards.slice(0, -1);
-  const updatedHand = [...prevCards.Hand, topCard];
+    if (deckCards.length === 0) {
+      return prevCards; // No cards in the deck
+    }
 
-  const updatedCards = {
-    ...prevCards,
-    Deck: updatedDeck,
-    Hand: updatedHand,
-  };
+    const topCard = deckCards[deckCards.length - 1];
+    const updatedDeck = deckCards.slice(0, -1);
+    const updatedHand = [...prevCards.Hand, topCard];
 
-  setCards(updatedCards);
+    const updatedCards = {
+      ...prevCards,
+      Deck: updatedDeck,
+      Hand: updatedHand,
+    };
+
+    return updatedCards;
+  });
 };
-export const handleShuffle = (zoneName, setCards, shuffleArray) => {
+
+export const handleShuffle = (zoneName, setCards) => {
   setCards((prevCards) => {
     const zoneCards = prevCards[zoneName];
     const shuffledCards = shuffleArray(zoneCards);
@@ -27,4 +32,31 @@ export const handleShuffle = (zoneName, setCards, shuffleArray) => {
 
     return updatedCards;
   });
+};
+
+export const moveZoneToDeckAndShuffle = (zoneName, setCards) => {
+  setCards((prevCards) => {
+    const zoneCards = prevCards[zoneName];
+
+    if (zoneCards.length === 0) {
+      return prevCards; // No cards in the specified zone
+    }
+
+    const updatedDeck = [...prevCards.Deck, ...zoneCards];
+    const shuffledDeck = shuffleArray(updatedDeck);
+
+    const updatedCards = {
+      ...prevCards,
+      Deck: shuffledDeck,
+      [zoneName]: [],
+    };
+
+    return updatedCards;
+  });
+};
+
+export const shuffleAllIntoDeck = (setCards) => {
+  moveZoneToDeckAndShuffle("Hand", setCards, shuffleArray);
+  moveZoneToDeckAndShuffle("Discard", setCards, shuffleArray);
+  // Add more zones if needed
 };

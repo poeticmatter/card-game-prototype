@@ -6,7 +6,12 @@ import DeckZone from "./components/DeckZone";
 import HandZone from "./components/HandZone";
 import { shuffleArray, findCard, removeCard } from "./utils/cardUtils";
 import { parseCsv } from "./utils/csvParser";
-import { drawCardFromDeck } from "./utils/cardActions";
+import {
+  drawCardFromDeck,
+  handleShuffle,
+  moveZoneToDeckAndShuffle,
+  shuffleAllIntoDeck,
+} from "./utils/cardActions";
 
 const App = () => {
   const [cards, setCards] = useState({
@@ -57,65 +62,6 @@ const App = () => {
       return updatedCards;
     });
   };
-  const handleShuffle = (zoneName) => {
-    setCards((prevCards) => {
-      const zoneCards = prevCards[zoneName];
-      const shuffledCards = shuffleArray(zoneCards);
-
-      const updatedCards = { ...prevCards };
-      updatedCards[zoneName] = shuffledCards;
-
-      return updatedCards;
-    });
-  };
-
-  const moveZoneToDeckAndShuffle = (zoneName) => {
-    setCards((prevCards) => {
-      const zoneCards = prevCards[zoneName];
-
-      if (zoneCards.length === 0) {
-        return prevCards; // No cards in the specified zone
-      }
-
-      const updatedDeck = [...prevCards.Deck, ...zoneCards];
-      const shuffledDeck = shuffleArray(updatedDeck);
-
-      const updatedCards = {
-        ...prevCards,
-        Deck: shuffledDeck,
-        [zoneName]: [],
-      };
-
-      return updatedCards;
-    });
-  };
-  const drawCardFromDeck = () => {
-    setCards((prevCards) => {
-      const deckCards = prevCards.Deck;
-
-      if (deckCards.length === 0) {
-        return prevCards; // No cards in the deck
-      }
-
-      const topCard = deckCards[deckCards.length - 1];
-      const updatedDeck = deckCards.slice(0, -1);
-      const updatedHand = [...prevCards.Hand, topCard];
-
-      const updatedCards = {
-        ...prevCards,
-        Deck: updatedDeck,
-        Hand: updatedHand,
-      };
-
-      return updatedCards;
-    });
-  };
-
-  const shuffleAllIntoDeck = () => {
-    moveZoneToDeckAndShuffle("Hand");
-    moveZoneToDeckAndShuffle("Discard");
-    // Add more zones if needed
-  };
 
   return (
     <div className="app">
@@ -147,18 +93,20 @@ const App = () => {
             </div>
           </div>
           <div className="button-container">
-            <button onClick={() => drawCardFromDeck(cards, setCards)}>
+            <button onClick={() => drawCardFromDeck(setCards)}>
               Draw Card
             </button>
-            <button
-              onClick={() => handleShuffle("Deck", setCards, shuffleArray)}
-            >
+            <button onClick={() => handleShuffle("Deck", setCards)}>
               Shuffle Deck
             </button>
-            <button onClick={() => moveZoneToDeckAndShuffle("Discard")}>
+            <button
+              onClick={() => moveZoneToDeckAndShuffle("Discard", setCards)}
+            >
               Discard into Deck
             </button>
-            <button onClick={() => shuffleAllIntoDeck()}>All into Deck</button>
+            <button onClick={() => shuffleAllIntoDeck(setCards)}>
+              All into Deck
+            </button>
           </div>
         </DndProvider>
       </div>
