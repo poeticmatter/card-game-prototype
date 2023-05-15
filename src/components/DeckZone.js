@@ -1,7 +1,7 @@
 import React from "react";
 import StackZone from "./StackZone";
 
-const DeckZone = ({ zoneName, cards, onCardMove, onShuffle }) => {
+const DeckZone = ({ zoneName, cards, onCardMove }) => {
   return (
     <div>
       <StackZone

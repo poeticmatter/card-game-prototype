@@ -4,7 +4,8 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import DiscardZone from "./components/DiscardZone";
 import DeckZone from "./components/DeckZone";
 import HandZone from "./components/HandZone";
-import { shuffleArray, findCard, removeCard } from "./utils/cardUtils";
+import PlayZone from "./components/PlayZone";
+import { findCard, removeCard } from "./utils/cardUtils";
 import { parseCsv } from "./utils/csvParser";
 import {
   drawCardFromDeck,
@@ -18,6 +19,7 @@ const App = () => {
     Deck: [],
     Discard: [],
     Hand: [],
+    Play: [],
   });
 
   useEffect(() => {
@@ -33,6 +35,7 @@ const App = () => {
           Deck: cardsWithIndex, // Add all cards to the Deck zone
           Discard: [],
           Hand: [],
+          Play: [],
         };
 
         setCards(updatedCards);
@@ -69,6 +72,13 @@ const App = () => {
       <div className="zones">
         <DndProvider backend={HTML5Backend}>
           <div className="zones-row">
+            <div>
+              <PlayZone
+                zoneName="Play"
+                cards={cards.Play}
+                onCardMove={handleCardMove}
+              />
+            </div>
             <div>
               <HandZone
                 zoneName="Hand"

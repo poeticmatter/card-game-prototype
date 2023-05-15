@@ -14,8 +14,6 @@ const StackZone = ({ zoneName, cards, onCardMove, cardDisplayType }) => {
       cardDisplayType={cardDisplayType}
     >
       <div className="single-card-zone">
-        {" "}
-        {/* Add the single-card-zone wrapper */}
         {topCard && (
           <Card
             key={topCard.id}

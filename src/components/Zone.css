@@ -13,19 +13,22 @@
   justify-content: center;
   align-items: center;
   gap: 10px; /* Adjust the gap between cards as needed */
-  min-height: 200px; /* Set a minimum height for the drop zone */
+  min-height: 220px; /* Set a minimum height for the drop zone */
+  border: 2px dashed #ccc; /* Add a dashed border for the drop zone */
+}
+
+.play-zone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Adjust the gap between cards as needed */
+  min-height: 600px; /* Set a minimum height for the drop zone */
   border: 2px dashed #ccc; /* Add a dashed border for the drop zone */
 }
 
 .zones-row {
   width: 80%;
   /* Add any additional styles you want */
-  margin-bottom: 40px; /* Add margin below the zones row */
-}
-
-.zone {
-  height: 240px; /* Set the desired height */
-  /* Additional styles for the zone container */
 }
 
 .zones {
@@ -51,8 +54,8 @@
   margin-top: 5px;
 }
 .single-card-zone {
-  width: 180px;
-  height: 100%; /* Set the height to 100% */
+  width: 170px;
+  height: 220px;
   border: 2px dashed #ccc;
   display: flex; /* Use flexbox for centering */
   justify-content: center; /* Center content horizontally */
