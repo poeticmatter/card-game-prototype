@@ -68,7 +68,6 @@ const App = () => {
 
   return (
     <div className="app">
-      <h1>Card Game Prototype</h1>
       <div className="zones">
         <DndProvider backend={HTML5Backend}>
           <div className="zones-row">
