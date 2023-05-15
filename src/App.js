@@ -26,30 +26,29 @@ const App = () => {
     loadCardData();
   }, []);
 
-const handleCardMove = (cardId, newZone) => {
-  setCards((prevCards) => {
-    // Find the card in the previous cards state
-    const updatedCards = prevCards.map((card) => {
-      if (card.id === cardId) {
-        // Update the card's zone
-        return { ...card, zone: newZone };
-      }
-      return card;
+  const handleCardMove = (cardId, newZone) => {
+    setCards((prevCards) => {
+      // Find the card in the previous cards state
+      const updatedCards = prevCards.map((card) => {
+        if (card.id === cardId) {
+          // Update the card's zone
+          return { ...card, zone: newZone };
+        }
+        return card;
+      });
+
+      return updatedCards;
     });
-
-    return updatedCards;
-  });
-};
-
+  };
 
   return (
     <div className="app">
       <h1>Card Game Prototype</h1>
       <div className="zones">
         <DndProvider backend={HTML5Backend}>
-          <Zone zoneName="Deck" cards={cards} onCardMove={handleCardMove} />
-          <Zone zoneName="Discard" cards={cards} onCardMove={handleCardMove} />
-          <Zone zoneName="Hand" cards={cards} onCardMove={handleCardMove} />
+          <Zone zoneName="Deck" cards={cards} onCardMove={handleCardMove} cardDisplayType="faceDown" />
+          <Zone zoneName="Discard" cards={cards} onCardMove={handleCardMove} cardDisplayType="faceUp" />
+          <Zone zoneName="Hand" cards={cards} onCardMove={handleCardMove} cardDisplayType="faceUp" />
         </DndProvider>
       </div>
     </div>
