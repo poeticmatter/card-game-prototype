@@ -19,7 +19,13 @@ const App = () => {
         // Parse the CSV text using PapaParse
         const { data } = Papa.parse(csvText, { header: true });
 
-        setCards(data); // Update the cards state with the parsed data
+        // Generate unique card IDs and assign card index
+        const cardsWithIndex = data.map((card, index) => ({
+          ...card,
+          id: `card-${index + 1}`,
+        }));
+
+        setCards(cardsWithIndex); // Update the cards state with the parsed data
       } catch (error) {
         console.error('Error loading card data:', error);
       }
@@ -31,13 +37,17 @@ const App = () => {
   const handleCardMove = (cardId, newZone) => {
     setCards((prevCards) => {
       // Find the card in the previous cards state
-      const updatedCards = prevCards.map((card) => {
-        if (card.id === cardId) {
-          // Update the card's zone
-          return { ...card, zone: newZone };
-        }
-        return card;
-      });
+      const movedCard = prevCards.find((card) => card.id === cardId);
+      if (!movedCard) {
+        return prevCards; // Card not found, return the previous state
+      }
+
+      // Filter out the moved card from the previous cards
+      const updatedCards = prevCards.filter((card) => card.id !== cardId);
+
+      // Add the moved card to the new zone at the end
+      const movedCardWithNewZone = { ...movedCard, zone: newZone };
+      updatedCards.push(movedCardWithNewZone);
 
       return updatedCards;
     });
