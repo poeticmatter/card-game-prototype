@@ -54,8 +54,8 @@ const PlayZone = ({ zoneName, cards, onCardMove }) => {
               style={{
                 opacity: isDragging ? 0.5 : 1,
                 position: "absolute",
-                left: cardPosition ? cardPosition.x : 0,
-                top: cardPosition ? cardPosition.y : 0,
+                left: cardPosition ? cardPosition.x - 30 : 0,
+                top: cardPosition ? cardPosition.y - 60 : 0,
               }}
             >
               <Card
