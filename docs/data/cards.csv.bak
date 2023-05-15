@@ -1,0 +1,11 @@
+id,cardName,cardType,zone
+1,Card 1,Type A,Hand
+2,Card 2,Type B,Deck
+3,Card 3,Type C,Discard
+4,Card 4,Type A,Deck
+5,Card 5,Type B,Hand
+6,Card 6,Type C,Deck
+7,Card 7,Type A,Discard
+8,Card 8,Type B,Hand
+9,Card 9,Type C,Deck
+10,Card 10,Type A,Hand
