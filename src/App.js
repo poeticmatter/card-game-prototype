@@ -6,6 +6,7 @@ import DeckZone from "./components/DeckZone";
 import HandZone from "./components/HandZone";
 import { shuffleArray, findCard, removeCard } from "./utils/cardUtils";
 import { parseCsv } from "./utils/csvParser";
+import { drawCardFromDeck } from "./utils/cardActions";
 
 const App = () => {
   const [cards, setCards] = useState({
@@ -146,8 +147,14 @@ const App = () => {
             </div>
           </div>
           <div className="button-container">
-            <button onClick={drawCardFromDeck}>Draw Card</button>
-            <button onClick={() => handleShuffle("Deck")}>Shuffle Deck</button>
+            <button onClick={() => drawCardFromDeck(cards, setCards)}>
+              Draw Card
+            </button>
+            <button
+              onClick={() => handleShuffle("Deck", setCards, shuffleArray)}
+            >
+              Shuffle Deck
+            </button>
             <button onClick={() => moveZoneToDeckAndShuffle("Discard")}>
               Discard into Deck
             </button>
