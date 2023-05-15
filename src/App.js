@@ -72,35 +72,30 @@ const App = () => {
       <div className="zones">
         <DndProvider backend={HTML5Backend}>
           <div className="zones-row">
-            <div>
-              <PlayZone
-                zoneName="Play"
-                cards={cards.Play}
-                onCardMove={handleCardMove}
-              />
-            </div>
-            <div>
-              <HandZone
-                zoneName="Hand"
-                cards={cards.Hand}
-                onCardMove={handleCardMove}
-              />
-            </div>
-            <div className="deck-discard-zone">
-              <DeckZone
-                zoneName="Deck"
-                cards={cards.Deck}
-                onCardMove={handleCardMove}
-                cardDisplayType="faceDown"
-              />
-              <div className="empty-padding"></div>
-              <DiscardZone
-                zoneName="Discard"
-                cards={cards.Discard}
-                onCardMove={handleCardMove}
-                cardDisplayType="faceUp"
-              />
-            </div>
+            <PlayZone
+              zoneName="Play"
+              cards={cards.Play}
+              onCardMove={handleCardMove}
+            />
+          </div>
+          <div className="zones-row">
+            <HandZone
+              zoneName="Hand"
+              cards={cards.Hand}
+              onCardMove={handleCardMove}
+            />
+            <DeckZone
+              zoneName="Deck"
+              cards={cards.Deck}
+              onCardMove={handleCardMove}
+              cardDisplayType="faceDown"
+            />
+            <DiscardZone
+              zoneName="Discard"
+              cards={cards.Discard}
+              onCardMove={handleCardMove}
+              cardDisplayType="faceUp"
+            />
           </div>
           <div className="button-container">
             <button onClick={() => drawCardFromDeck(setCards)}>

@@ -58,5 +58,7 @@ export const moveZoneToDeckAndShuffle = (zoneName, setCards) => {
 export const shuffleAllIntoDeck = (setCards) => {
   moveZoneToDeckAndShuffle("Hand", setCards, shuffleArray);
   moveZoneToDeckAndShuffle("Discard", setCards, shuffleArray);
+  moveZoneToDeckAndShuffle("Play", setCards, shuffleArray);
+
   // Add more zones if needed
 };

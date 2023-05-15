@@ -14,6 +14,7 @@
   align-items: center;
   gap: 10px; /* Adjust the gap between cards as needed */
   min-height: 220px; /* Set a minimum height for the drop zone */
+  min-width: 830px;
   border: 2px dashed #ccc; /* Add a dashed border for the drop zone */
 }
 
@@ -23,12 +24,15 @@
   align-items: center;
   gap: 10px; /* Adjust the gap between cards as needed */
   min-height: 600px; /* Set a minimum height for the drop zone */
+  min-width: 1200px; /* Set a minimum height for the drop zone */
   border: 2px dashed #ccc; /* Add a dashed border for the drop zone */
 }
 
 .zones-row {
-  width: 80%;
-  /* Add any additional styles you want */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Adjust the gap between cards as needed */
 }
 
 .zones {
@@ -37,19 +41,6 @@
   align-items: center;
 }
 
-.deck-discard-zone {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px; /* Add margin below the deck-discard-zone */
-}
-
-.empty-padding {
-  padding: 5px;
-}
-
-.hand-zone {
-  margin-bottom: 10px; /* Add margin below the hand zone */
-}
 .button-container {
   margin-top: 5px;
 }
