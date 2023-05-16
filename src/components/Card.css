@@ -24,7 +24,14 @@
 }
 h3 {
   font-size: 14px;
+  margin: 2px;
+}
+h4 {
+  font-size: 12px;
+  margin: 2px;
 }
 .card-text {
   font-size: 12px;
+  margin-left: 2px;
+  margin-right: 2px;
 }
