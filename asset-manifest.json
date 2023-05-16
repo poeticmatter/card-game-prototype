@@ -1,15 +1,15 @@
 {
-  "main.css": "/card-game-prototype/static/css/main.2ffa3301.chunk.css",
-  "main.js": "/card-game-prototype/static/js/main.d12d23b1.chunk.js",
-  "main.js.map": "/card-game-prototype/static/js/main.d12d23b1.chunk.js.map",
+  "main.css": "/card-game-prototype/static/css/main.513d6f9c.chunk.css",
+  "main.js": "/card-game-prototype/static/js/main.e787ea72.chunk.js",
+  "main.js.map": "/card-game-prototype/static/js/main.e787ea72.chunk.js.map",
   "static/js/1.a55ae8da.chunk.js": "/card-game-prototype/static/js/1.a55ae8da.chunk.js",
   "static/js/1.a55ae8da.chunk.js.map": "/card-game-prototype/static/js/1.a55ae8da.chunk.js.map",
-  "static/js/2.138a3915.chunk.js": "/card-game-prototype/static/js/2.138a3915.chunk.js",
-  "static/js/2.138a3915.chunk.js.map": "/card-game-prototype/static/js/2.138a3915.chunk.js.map",
+  "static/js/2.49d46fe2.chunk.js": "/card-game-prototype/static/js/2.49d46fe2.chunk.js",
+  "static/js/2.49d46fe2.chunk.js.map": "/card-game-prototype/static/js/2.49d46fe2.chunk.js.map",
   "runtime~main.js": "/card-game-prototype/static/js/runtime~main.ddd8e2b8.js",
   "runtime~main.js.map": "/card-game-prototype/static/js/runtime~main.ddd8e2b8.js.map",
-  "static/css/main.2ffa3301.chunk.css.map": "/card-game-prototype/static/css/main.2ffa3301.chunk.css.map",
+  "static/css/main.513d6f9c.chunk.css.map": "/card-game-prototype/static/css/main.513d6f9c.chunk.css.map",
   "index.html": "/card-game-prototype/index.html",
-  "precache-manifest.8696ba039ea1cc72b52f0cea2fcfeef8.js": "/card-game-prototype/precache-manifest.8696ba039ea1cc72b52f0cea2fcfeef8.js",
+  "precache-manifest.d72964757fb6b875445a58bb4f7cd54c.js": "/card-game-prototype/precache-manifest.d72964757fb6b875445a58bb4f7cd54c.js",
   "service-worker.js": "/card-game-prototype/service-worker.js"
 }
