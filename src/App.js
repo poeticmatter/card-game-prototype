@@ -42,22 +42,20 @@ const App = () => {
     loadCardData(csvPath);
   }, []);
 
+  const initData = (cardData) => {
+    const updatedCards = {
+      Deck: cardData, // Add all cards to the Deck zone
+      Discard: [],
+      Hand: [],
+      Play: [],
+    };
+    setCards(updatedCards);
+  };
+
   const loadCardData = async (csvFilePath) => {
     try {
       const data = await parseCsv(csvFilePath);
-      const cardsWithIndex = data.map((card, index) => ({
-        ...card,
-        id: `card-${index + 1}`,
-      }));
-
-      const updatedCards = {
-        Deck: cardsWithIndex, // Add all cards to the Deck zone
-        Discard: [],
-        Hand: [],
-        Play: [],
-      };
-
-      setCards(updatedCards);
+      initData(data);
     } catch (error) {
       console.error("Error loading card data:", error);
     }
@@ -90,15 +88,7 @@ const App = () => {
       const csvData = e.target.result;
       try {
         const parsedData = parse(csvData, { header: true }).data;
-        console.log("parsedData", parsedData);
-        const updatedCards = {
-          Deck: parsedData, // Replace the Deck zone with the new data
-          Discard: [],
-          Hand: [],
-          Play: [],
-        };
-        console.log("updated cards", updatedCards);
-        setCards(updatedCards);
+        initData(parsedData);
       } catch (error) {
         console.error("Error parsing CSV:", error);
       }
