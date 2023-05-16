@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "b16fcd92b5d778a7aee1",
-    "url": "/card-game-prototype/static/css/main.c6f9d66b.chunk.css"
+    "revision": "5f3548c3bbfdd84dbd4d",
+    "url": "/card-game-prototype/static/css/main.2ffa3301.chunk.css"
   },
   {
-    "revision": "b16fcd92b5d778a7aee1",
-    "url": "/card-game-prototype/static/js/main.b16fcd92.chunk.js"
+    "revision": "5f3548c3bbfdd84dbd4d",
+    "url": "/card-game-prototype/static/js/main.5f3548c3.chunk.js"
   },
   {
     "revision": "a55ae8da76b6c0c45aec",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/card-game-prototype/static/js/runtime~main.ddd8e2b8.js"
   },
   {
-    "revision": "bbf127e24e632f322209f5c46098b9c2",
+    "revision": "4c48053138422c9eea3b9258346a0a65",
     "url": "/card-game-prototype/index.html"
   }
 ];
