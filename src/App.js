@@ -14,6 +14,7 @@ import {
   shuffleAllIntoDeck,
 } from "./utils/cardActions";
 import { parse } from "papaparse";
+import "./theme.css";
 
 const App = () => {
   const [cards, setCards] = useState({
@@ -22,6 +23,19 @@ const App = () => {
     Hand: [],
     Play: [],
   });
+
+  const Footer = () => (
+    <footer className="footer">
+      <p>
+        Created by Aurore Inara | Website:{" "}
+        <a href="https://timeshapers.com">timeshapers.com</a> | Github:{" "}
+        <a href="https://github.com/poeticmatter/card-game-prototype">
+          github.com/poeticmatter/card-game-prototype
+        </a>{" "}
+        | License: MIT
+      </p>
+    </footer>
+  );
 
   useEffect(() => {
     const csvPath = process.env.PUBLIC_URL + "/data/cards.csv";
@@ -158,6 +172,7 @@ const App = () => {
           </div>
         </DndProvider>
       </div>
+      <Footer />
     </div>
   );
 };
