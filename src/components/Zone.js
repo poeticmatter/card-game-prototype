@@ -12,7 +12,6 @@ const Zone = ({ zoneName, onCardMove, children }) => {
 
   return (
     <div ref={drop}>
-      <h2 className="zone-title center-text">{zoneName}</h2>
       <div className={`card-list ${isOver ? "highlight" : ""}`}>{children}</div>
     </div>
   );
