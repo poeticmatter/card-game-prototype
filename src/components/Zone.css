@@ -15,6 +15,7 @@
   gap: 10px; /* Adjust the gap between cards as needed */
   min-height: 220px; /* Set a minimum height for the drop zone */
   min-width: 830px;
+  max-width: 830px;
   border: 2px dashed #ccc; /* Add a dashed border for the drop zone */
 }
 

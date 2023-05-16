@@ -1,9 +1,9 @@
 .card {
-  width: 126px;
-  height: 176px;
+  width: 146px;
+  height: 210px;
   border-radius: 8px;
   border: 1px solid #000;
-  padding: 10px;
+  padding: 2px;
   background-color: #f0f0f0;
   /* Add any other styles specific to the Card component */
 }
@@ -21,4 +21,10 @@
     #000 4px
   );
   /* Add any other styles for the card back design */
+}
+h3 {
+  font-size: 14px;
+}
+.card-text {
+  font-size: 12px;
 }

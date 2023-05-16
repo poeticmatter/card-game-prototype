@@ -29,7 +29,7 @@ const Card = ({ card, cardDisplayType }) => {
       onClick={handleClick}
     >
       <h3 className="center-text">{isFaceUp ? card.cardName : ""}</h3>
-      <p>{isFaceUp ? `Type: ${card.cardType}` : ""}</p>
+      <p className="card-text">{isFaceUp ? card.cardType : ""}</p>
     </div>
   );
 };
