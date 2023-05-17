@@ -1,11 +1,11 @@
-id,cardName,cardType,cardText
-1,Card 1,Type A,The css is really bad as everything is fixed size. I would appreciate help improving it.
-2,Card 2,Type B,Feel free to make feature requests but remember the scope of the project.
-3,Card 3,Type C,Feel free to offer contributions in git.
-4,Card 4,Type A,Feel free to copy the code and play around with it.
-5,Card 5,Type B,All into deck shuffles all cards into deck from all zones.
-6,Card 6,Type C,Cards are not shuffled by default and the last card will be the top card.
-7,Card 7,Type A,You can use the play zone as multiple free zones if you need them.
-8,Card 8,Type B,You can drag and drop between zones.
-9,Card 9,Type C,You can download a csv template to modify.
-10,Card 10,Type A,This is not meant to be a robust tool but rather for rapid prototyping.
+id,cardName,cardType,cardText,cardColor
+1,Card 1,Type A,Feel free to copy the code and play around with it.,#f0f0f0
+2,Card 2,Type B,Feel free to make feature requests but remember the scope of the project.,#f0f0f0
+3,Card 3,Type C,Feel free to offer contributions in git.,#f0f0f0
+4,Card 4,Type A,The cardColor field is optional.,#f0f0f0
+5,Card 5,Type B,All into deck shuffles all cards into deck from all zones.,#f0f0f0
+6,Card 6,Type C,Cards are not shuffled by default and the last card will be the top card.,#f0f0f0
+7,Card 7,Type A,You can use the play zone as multiple free zones if you need them.,#f0f0f0
+8,Card 8,Type B,You can drag and drop between zones.,#f0f0f0
+9,Card 9,Type C,You can download a csv template to modify.,#f0f0f0
+10,Card 10,Type A,This is not meant to be a robust tool but rather for rapid prototyping.,#f0f0f0
